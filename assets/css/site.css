@@ -350,6 +350,11 @@ img, canvas { display: block; max-width: 100%; }
 .quests a:hover { color: var(--fg); border-color: var(--fg-3); }
 .quests a span { font-size: 12px; color: var(--fg-4); }
 
+.resume-link { margin: 22px 0 0; font-size: 15px; }
+.resume-link a { color: var(--fg); border-bottom: 1px solid var(--line-2); transition: border-color 0.2s; }
+.resume-link a:hover { border-color: var(--fg); }
+.resume-link span { font-size: 12px; color: var(--fg-4); }
+
 /* Pixel-font buttons inside the scenes (radio, launch) */
 .pixel-btn {
   position: absolute;
