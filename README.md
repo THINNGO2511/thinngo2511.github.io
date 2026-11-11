@@ -1,6 +1,6 @@
 # Edward Ngo — personal site
 
-Live at **https://thinngo2511.github.io/Personal_Portfolio/**
+Live at **https://thinngo2511.github.io/**
 
 A one-page portfolio in plain HTML, CSS and JavaScript: no framework, no build step, nothing to install. Every scene is drawn in code as low-res pixel art and scaled up crisply.
 
@@ -43,7 +43,7 @@ Then open http://localhost:4173.
 
 ## Deploy
 
-GitHub Pages serves the repository root of `main` (Settings → Pages → *Deploy from a branch* → `main` / `/ (root)`). Push to `main` and the site updates.
+This repo is named `thinngo2511.github.io`, so GitHub Pages serves it at the root of that address, from the `main` branch. Push to `main` and the site updates. Old links to the previous address (`/Personal_Portfolio/…`) are redirected by `404.html`.
 
 <details>
 <summary>Previous version</summary>

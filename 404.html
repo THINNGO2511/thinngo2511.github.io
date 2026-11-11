@@ -6,20 +6,20 @@
   <title>Edward Ngo</title>
   <meta name="robots" content="noindex">
   <script>
-    // Old routes (/about, /contact) and anything else → the one-page site.
+    // The site lives at the root now. Old links from the previous address
+    // (/Personal_Portfolio/...) and old routes (/about, /contact) land on the
+    // matching section of the one page.
     (function () {
-      var path = location.pathname;
-      var marker = '/Personal_Portfolio/';
-      var at = path.indexOf(marker);
-      var base = at >= 0 ? path.slice(0, at + marker.length) : '/';
-      var rest = (at >= 0 ? path.slice(at + marker.length) : path.slice(1)).replace(/\/+$/, '').toLowerCase();
-      // everything lives on one page now; old routes jump to their section
+      var path = location.pathname.toLowerCase();
+      var legacy = '/personal_portfolio';
+      if (path.indexOf(legacy) === 0) path = path.slice(legacy.length);
+      var rest = path.replace(/^\/+|\/+$/g, '');
       var hash = { about: '#about', career: '#career', portfolio: '#career', contact: '#contact' }[rest] || '';
-      location.replace(base + hash);
+      location.replace('/' + hash);
     })();
   </script>
 </head>
-<body style="background:#0a0a0b;color:#ecebe7;font-family:ui-monospace,Menlo,monospace">
-  <p style="padding:24px">Redirecting… <a style="color:#ff5a1f" href="./">Go home</a></p>
+<body style="background:#313131;color:#dfdfdf;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif">
+  <p style="padding:24px">Redirecting… <a style="color:#ffd700" href="/">Go home</a></p>
 </body>
 </html>
