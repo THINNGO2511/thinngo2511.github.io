@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Edward Ngo</title>
+  <meta name="description" content="Edward Ngo — software engineer at Meta, currently building RL environments for robotics.">
+  <meta name="theme-color" content="#313131">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Edward Ngo">
+  <meta property="og:description" content="Currently building RL environments for robotics at Meta.">
+  <meta property="og:url" content="https://thinngo2511.github.io/Personal_Portfolio/">
+  <link rel="icon" href="assets/img/pegasus-64.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/pegasus-180.png">
+  <link rel="preload" href="assets/fonts/CoolveticaRg-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script src="assets/js/pixels.js" defer></script>
+  <script src="assets/js/radio.js" defer></script>
+  <script src="assets/js/orrery.js" defer></script>
+  <script src="assets/js/tiny3d.js" defer></script>
+  <script src="assets/js/sim.js" defer></script>
+  <script src="assets/js/rocket.js" defer></script>
+  <script src="assets/js/globe.js" defer></script>
+</head>
+<body>
+  <main>
+    <section class="hero" id="home">
+      <span class="tag tag--top" aria-hidden="true">&lt;Go Coogs!&gt;</span>
+
+      <div class="hero__text">
+        <h1>Hi,<br>I’m Edward Ngo.</h1>
+        <p class="hero__role">SWE @ Meta <span aria-hidden="true">|</span> CS @ University of Houston</p>
+        <p class="hero__sub">Currently building RL envs for robotics @ Meta.</p>
+        <div class="hero__actions">
+          <a class="flat-button" href="#about">About me</a>
+          <a class="flat-button" href="#contact">Contact me</a>
+        </div>
+      </div>
+
+      <figure class="orrery" data-orrery>
+        <div class="orrery__frame">
+          <div class="orrery__stage" data-stage>
+            <canvas aria-hidden="true"></canvas>
+            <div class="orrery__labels" data-labels></div>
+            <p class="orrery__date" data-simdate aria-hidden="true"></p>
+            <button class="orrery__radio" type="button" data-radio aria-pressed="false">
+              <span class="radio__icon" aria-hidden="true"></span>
+              Radio
+              <span class="radio__bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+            </button>
+          </div>
+
+          <div class="orrery__panel" data-panel hidden aria-live="polite">
+            <p class="orrery__kicker" data-kicker></p>
+            <h2 class="orrery__title" data-title></h2>
+            <dl class="orrery__facts" data-facts></dl>
+            <div class="orrery__body" data-body></div>
+            <button class="orrery__back" type="button" data-back>← Back to the solar system</button>
+          </div>
+        </div>
+        <figcaption>Play with this solar system</figcaption>
+      </figure>
+
+      <span class="tag tag--bottom" aria-hidden="true">&lt;Houston, we have a problem!&gt;<br><span>&lt;Dare Unite Explore&gt;</span></span>
+
+      <ul class="hero__links">
+        <li><a href="https://github.com/THINNGO2511" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://www.linkedin.com/in/ngothinh/" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a></li>
+      </ul>
+    </section>
+
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="section__text">
+        <h2 id="about-title">About me</h2>
+        <p>I’m currently working on RL environments for robotics at Meta: the simulated worlds robots practice in before they ever touch the real one.</p>
+        <p>I’d love to work with robotics even more, and I’m always trying to learn more about it.</p>
+        <p>Outside of work, I enjoy working out, exploring the stock market, and thinking.</p>
+      </div>
+
+      <figure class="sim" data-sim>
+        <div class="sim__stage" data-sim-stage role="img" aria-label="A pixel-art humanoid robot in a simulator, learning to fold laundry">
+          <canvas aria-hidden="true"></canvas>
+          <div class="sim__hud" aria-hidden="true">
+            <div class="sim__hud-left">
+              <p class="sim__env">FoldLaundry-v0</p>
+              <p data-hud-ep></p>
+              <p data-hud-ret></p>
+              <p class="sim__status" data-hud-status></p>
+            </div>
+            <div class="sim__hud-right">
+              <p data-hud-rate></p>
+              <canvas data-spark></canvas>
+              <p class="sim__spark-label">Return / episode</p>
+            </div>
+          </div>
+        </div>
+        <figcaption>Drag to look around, click to shove the robot</figcaption>
+      </figure>
+    </section>
+
+    <section class="section" id="career" aria-labelledby="career-title">
+      <div class="section__text">
+        <h2 id="career-title">Career</h2>
+        <ol class="career">
+          <li class="career__item">
+            <p class="career__when">Now · Menlo Park, CA</p>
+            <h3>Meta <span>Software Engineer</span></h3>
+            <p>Building RL environments for robotics. Before that, ML systems for user location accuracy on the Location Inference team.</p>
+          </li>
+          <li class="career__item">
+            <p class="career__when">3 internships · Houston, TX</p>
+            <h3>NASA Johnson Space Center <span>Software Engineering Intern</span></h3>
+            <p>Three internships at the home of Mission Control, spanning work with ISS flight controllers, trajectory software testing, and an on-device LLM with RAG.</p>
+          </li>
+          <li class="career__item">
+            <p class="career__when">Fall 2025 · Houston, TX</p>
+            <h3>University of Houston <span>Computer Science</span></h3>
+            <p>Go Coogs.</p>
+          </li>
+        </ol>
+
+        <div class="quests">
+          <p class="quests__title">Some side quests</p>
+          <ul>
+            <li><a href="https://github.com/THINNGO2511/AMD-GPU-MODE" target="_blank" rel="noopener">AMD × GPU MODE kernel speedrun <span aria-hidden="true">↗</span></a> · DeepSeek-R1 decode, 40% faster</li>
+            <li>NVIDIA × GPU MODE NVFP4 kernel hackathon</li>
+            <li><a href="https://github.com/THINNGO2511/parameter-golf" target="_blank" rel="noopener">OpenAI Parameter Golf <span aria-hidden="true">↗</span></a></li>
+            <li><a href="https://github.com/THINNGO2511/RiceDatathon2023---BakerRipleyChallenge" target="_blank" rel="noopener">Rice Datathon 2023 <span aria-hidden="true">↗</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <figure class="rocket" data-rocket>
+        <div class="rocket__stage" data-rocket-stage role="img" aria-label="A 3D pixel-art Starship launch: the booster is caught by the launch tower and the ship lands on a pad">
+          <canvas aria-hidden="true"></canvas>
+          <div class="rocket__hud" aria-live="polite">
+            <p data-rocket-hud></p>
+            <p data-rocket-booster></p>
+            <p data-rocket-ship></p>
+          </div>
+          <button class="pixel-btn rocket__launch" type="button" data-launch>
+            <span class="pixel-btn__icon" aria-hidden="true"></span>
+            <span>Launch</span>
+          </button>
+          <div class="zoom">
+            <button class="pixel-btn" type="button" data-zoom="in" aria-label="Zoom in">+</button>
+            <button class="pixel-btn" type="button" data-zoom="out" aria-label="Zoom out">−</button>
+          </div>
+        </div>
+        <figcaption>Drag to look around, then hit launch</figcaption>
+      </figure>
+    </section>
+
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="section__text">
+        <h2 id="contact-title">Contact me</h2>
+        <p>I’m currently in the Bay Area and interested in robotics opportunities, especially advanced and ambitious projects.</p>
+        <p>You can reach me at <a class="mail" href="mailto:ngothinh2511@gmail.com">ngothinh2511@gmail.com</a>, or find me on LinkedIn and GitHub.</p>
+        <div class="hero__actions">
+          <a class="flat-button" href="mailto:ngothinh2511@gmail.com">Email me</a>
+          <a class="flat-button" href="https://www.linkedin.com/in/ngothinh/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="flat-button" href="https://github.com/THINNGO2511" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+
+      <figure class="globe" data-globe>
+        <div class="globe__stage" data-globe-stage role="img" aria-label="A dotted globe with arcs from Houston to places I've been: the SF Bay Area, Seattle, Los Angeles, Chicago, Florida, most of Texas and Zurich">
+          <canvas aria-hidden="true"></canvas>
+          <div class="globe__labels" data-globe-labels aria-hidden="true"></div>
+          <div class="globe__hud" aria-hidden="true">
+            <p data-globe-hud></p>
+            <p>Drag to turn</p>
+          </div>
+          <div class="zoom">
+            <button class="pixel-btn" type="button" data-zoom="in" aria-label="Zoom in">+</button>
+            <button class="pixel-btn" type="button" data-zoom="out" aria-label="Zoom out">−</button>
+          </div>
+        </div>
+        <figcaption>A few places I’ve been to before (I need to travel more)</figcaption>
+      </figure>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>© 2026 Edward Ngo</span>
+    <span class="tag">&lt;Go Coogs!&gt;</span>
+  </footer>
+</body>
+</html>

@@ -1,28 +1,52 @@
-# Personal Portfolio
+# Edward Ngo — personal site
 
-My personal website to learn more about me :D
+Live at **https://thinngo2511.github.io/Personal_Portfolio/**
 
+A one-page portfolio in plain HTML, CSS and JavaScript: no framework, no build step, nothing to install. Every scene is drawn in code as low-res pixel art and scaled up crisply.
 
-![alt text](<Screenshot 2024-04-21 at 3.14.31 PM.png>)
+| Section | Scene | Script |
+|---|---|---|
+| Home | Solar system with today's real planet positions; click the ISS, Lunar Gateway, Perseverance or Voyager 1 to zoom in | `orrery.js` |
+| About | A 3D robot learning to fold laundry in a little RL environment (drag to orbit, click to shove) | `sim.js` |
+| Career | Starship launch with a booster catch and ship landing (drag to orbit, +/− to zoom) | `rocket.js` |
+| Contact | Dotted globe of places I've been, arcs from Houston (drag to turn, +/− to zoom) | `globe.js` |
 
-Available at: https://thinngo2511.github.io/Personal_Portfolio
+Shared pieces:
 
-## Techstack
-- Complex Animation (all JavaScript vanilla code)
-- React.js (JavaScript, HTML, SCSS)
-- Github Pages
+```
+index.html            all content and copy
+assets/css/site.css   colors, fonts and layout
+assets/js/pixels.js   palette, sprites and the dithered-sphere renderer (solar system)
+assets/js/tiny3d.js   tiny software 3D renderer used by the robot room and Starship
+assets/js/radio.js    the "Radio" button: synthesized static and beeps (Web Audio, off by default)
+assets/fonts/         Coolvetica and La Belle Aurore, from the original site
+assets/img/           pegasus favicon
+404.html              sends old links (/about, /contact) to the matching section
+```
 
-## For anyone curious
-### Installation
+The globe's coastlines come from Natural Earth's public-domain 1:110m land data, baked into a 2 KB bitmask inside `globe.js`.
 
-1. Clone the repository: `git clone https://github.com/your-username/react-portfolio.git`
-2. Navigate to the project directory: `cd react-portfolio`
-3. Install the dependencies: `npm install`
+## Run locally
 
-### Run
-1. `cd react-portfolio`
-2. Then use: `npm start`
+```bash
+python3 -m http.server 4173
+```
 
-#### Tutorial: https://www.youtube.com/watch?v=bmpI252DmiI
+Then open http://localhost:4173.
 
+## Editing
 
+- **Words:** everything is in `index.html`; each section is commented.
+- **Solar system info cards:** `INFO` near the top of `orrery.js`.
+- **Places on the globe:** `PLACES` in `globe.js` (the `primary` one gets the yellow arc).
+- **Starship timing:** the `TL` mission clock in `rocket.js`.
+
+## Deploy
+
+GitHub Pages serves the repository root of `main` (Settings → Pages → *Deploy from a branch* → `main` / `/ (root)`). Push to `main` and the site updates.
+
+<details>
+<summary>Previous version</summary>
+
+The original React (Create React App) version lives in git history, before the `revamp` branch.
+</details>
