@@ -633,19 +633,32 @@
 
   function drawBody({ kind, cx: bx, cy: by, dir, r, light, spin = 0, tilt = 0 }) {
     const at = dir ? skyDir(dir) : skyPos(bx, by);
-    if (at) renderBody(kind, at[0], at[1], r, camRot(cam.yaw, cam.pitch), light, spin, tilt);
+    if (!at) return;
+    bodiesBegin();
+    renderBody(kind, at[0], at[1], r, camRot(cam.yaw, cam.pitch), light, spin, tilt);
+    bodiesEnd();
   }
 
-  // Paint a globe centred at (cx, cy) on screen. R is the camera rotation: surface normals are
-  // turned back into world space, so the globe's face and lighting turn with the view.
-  function renderBody(kind, cx, cy, r, R, light, spin = 0, tilt = 0, base = null) {
-    const Lv = rot(R, light);
+  // Globes are painted pixel by pixel into one shared buffer, then put on screen in a single copy.
+  // (Painting two globes as two separate clear-and-copy passes loses the first one on iOS Safari,
+  // which can copy the buffer late, after the second globe has already overwritten it.)
+  function bodiesBegin() {
     if (!bodyImg || bodyImg.width !== W || bodyImg.height !== H) {
       bodyCanvas.width = W; bodyCanvas.height = H;
       bodyImg = bodyCtx.createImageData(W, H);
       bodyBuf = new Uint32Array(bodyImg.data.buffer);
     }
     bodyBuf.fill(0);
+  }
+  function bodiesEnd() {
+    bodyCtx.putImageData(bodyImg, 0, 0);
+    ctx.drawImage(bodyCanvas, 0, 0);
+  }
+
+  // Paint a globe centred at (cx, cy) into the buffer. R is the camera rotation: surface normals
+  // are turned back into world space, so the globe's face and lighting turn with the view.
+  function renderBody(kind, cx, cy, r, R, light, spin = 0, tilt = 0, base = null) {
+    const Lv = rot(R, light);
     const ct = Math.cos(tilt), st = Math.sin(tilt);
     const halo = kind === 'earth' ? 2.4 : 0, reach = r + halo;
     const v0 = base ?? (kind === 'earth' ? 0.16 : 0.3);   // backdrops sit a step darker than the vehicles
@@ -678,8 +691,6 @@
         bodyBuf[y * W + x] = u32(P.dither(ramp, v, x, y));
       }
     }
-    bodyCtx.putImageData(bodyImg, 0, 0);
-    ctx.drawImage(bodyCanvas, 0, 0);
   }
 
   const smallEarth = (x, y, r, light, spin) =>
@@ -1132,8 +1143,10 @@
     // anything behind Earth or the Moon (farther than its centre) and inside its disc is hidden
     const hidden = (s) => (s[2] < ec[2] && Math.hypot(s[0] - ec[0], s[1] - ec[1]) < er)
       || (s[2] < mc[2] && Math.hypot(s[0] - mc[0], s[1] - mc[1]) < mr);
+    bodiesBegin();
     renderBody('earth', ec[0], ec[1], er, R, MAP.light, MAP.spin, 0, 0.42);
     renderBody('moon', mc[0], mc[1], mr, R, MAP.light, 0.4, 0, 0.42);
+    bodiesEnd();
 
     const dot = (s, col) => { if (!hidden(s)) { ctx.fillStyle = col; ctx.fillRect(Math.round(s[0]), Math.round(s[1]), 1, 1); } };
     // traveled stretches are bright dots, the rest fainter, sparser dots
