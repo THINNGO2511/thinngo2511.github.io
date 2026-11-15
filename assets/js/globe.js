@@ -26,6 +26,7 @@
     const i = r * MASK_W + c;
     return (MASK[i >> 3] >> (7 - (i & 7))) & 1;
   };
+  window.EarthLand = isLand;   // the Artemis scene (rocket.js) paints Earth from orbit with it
 
   const RAD = Math.PI / 180;
   const vec = (lat, lon) => {

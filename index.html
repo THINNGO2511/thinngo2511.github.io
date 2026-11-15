@@ -137,23 +137,25 @@
       </div>
 
       <figure class="rocket" data-rocket>
-        <div class="rocket__stage" data-rocket-stage role="img" aria-label="A 3D pixel-art Starship launch: the booster is caught by the launch tower and the ship lands on a pad">
-          <canvas aria-hidden="true"></canvas>
-          <div class="rocket__hud" aria-live="polite">
-            <p data-rocket-hud></p>
-            <p data-rocket-booster></p>
-            <p data-rocket-ship></p>
+        <div class="rocket__stage" data-rocket-stage>
+          <canvas role="img" aria-label="A 3D pixel-art Artemis Moon mission: SLS launches Orion from Kennedy, Orion docks with the Lunar Gateway, a Starship lander takes two astronauts to the lunar south pole and back, and Orion splashes down in the Pacific"></canvas>
+          <div class="rocket__hud" aria-hidden="true">
+            <p data-rocket-clock></p>
+            <p data-rocket-orion></p>
+            <p data-rocket-lander></p>
           </div>
+          <p class="visually-hidden" aria-live="polite" data-rocket-live></p>
           <button class="pixel-btn rocket__launch" type="button" data-launch>
             <span class="pixel-btn__icon" aria-hidden="true"></span>
             <span>Launch</span>
           </button>
+          <div class="phases" role="group" aria-label="Mission phases" data-phases></div>
           <div class="zoom">
             <button class="pixel-btn" type="button" data-zoom="in" aria-label="Zoom in">+</button>
             <button class="pixel-btn" type="button" data-zoom="out" aria-label="Zoom out">−</button>
           </div>
         </div>
-        <figcaption>Drag to look around, then hit launch</figcaption>
+        <figcaption>Hit launch to fly an Artemis mission to the Moon</figcaption>
       </figure>
     </section>
 

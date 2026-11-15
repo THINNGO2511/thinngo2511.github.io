@@ -22,9 +22,9 @@ A pixel humanoid robot learns to fold laundry in a tiny RL environment, with a H
 
 ### Career
 
-[![Career: Meta, NASA and University of Houston next to a Starship on the launch tower](docs/screenshots/career.png)](https://thinngo2511.github.io/#career)
+[![Career: Meta, NASA and University of Houston next to SLS on the launch pad](docs/screenshots/career.png)](https://thinngo2511.github.io/#career)
 
-Meta, three NASA Johnson Space Center internships, the University of Houston, a few side quests and a link to the full resume. Next to them is a Starship on the pad: hit **Launch** to watch the booster get caught by the tower and the ship land. Drag to look around, **+ / −** to zoom.
+Meta, three NASA Johnson Space Center internships, the University of Houston, a few side quests and a link to the full resume. Next to them is SLS on the pad at Kennedy. Hit **Launch** to fly a whole Artemis mission in about 90 seconds: liftoff through a cloud of deluge steam, a lap of Earth, the burn to the Moon, catching and docking with the Lunar Gateway for a lap of the Moon, a Starship lander taking two crew down to the south pole (its cargo elevator lowers a rover), then straight home to a splashdown in the Pacific next to a Ford-class carrier that launches Hornets, sends Seahawks out to the capsule and finishes with fireworks. **Pause** freezes it anywhere; while paused, the dots along the bottom step through the phases. Drag to look around, **+ / −** to zoom.
 
 ### Contact
 
@@ -38,7 +38,7 @@ Email, LinkedIn, GitHub and resume, next to a dotted globe with arcs from Housto
 |---|---|---|
 | Home | Solar system with today's real planet positions; click the ISS, Lunar Gateway, Perseverance or Voyager 1 to zoom in | `orrery.js` |
 | About | A 3D robot learning to fold laundry in a little RL environment (drag to orbit, click to shove) | `sim.js` |
-| Career | Starship launch with a booster catch and ship landing (drag to orbit, +/− to zoom) | `rocket.js` |
+| Career | An Artemis Moon mission: SLS launch, Orion docking with the Lunar Gateway, a Starship landing and rover drive at the lunar south pole, and a splashdown with a carrier group (drag to orbit, +/− to zoom, pause, dots jump between phases) | `rocket.js` |
 | Contact | Dotted globe of places I've been, arcs from Houston (drag to turn, +/− to zoom) | `globe.js` |
 
 Shared pieces:
@@ -47,7 +47,7 @@ Shared pieces:
 index.html            all content and copy
 assets/css/site.css   colors, fonts and layout
 assets/js/pixels.js   palette, sprites and the dithered-sphere renderer (solar system)
-assets/js/tiny3d.js   tiny software 3D renderer used by the robot room and Starship
+assets/js/tiny3d.js   tiny software 3D renderer used by the robot room and the Artemis mission
 assets/js/radio.js    the "Radio" button: synthesized static and beeps (Web Audio, off by default)
 assets/fonts/         Coolvetica and La Belle Aurore, from the original site
 assets/img/           pegasus favicon
@@ -55,7 +55,7 @@ assets/img/           pegasus favicon
 docs/screenshots/     the screenshots in this README (1440×900 at 2×)
 ```
 
-The globe's coastlines come from Natural Earth's public-domain 1:110m land data, baked into a 2 KB bitmask inside `globe.js`.
+The globe's coastlines come from Natural Earth's public-domain 1:110m land data, baked into a 2 KB bitmask inside `globe.js`. The Artemis scene borrows the same bitmask to paint Earth from orbit.
 
 ## Run locally
 
@@ -70,7 +70,7 @@ Then open http://localhost:4173.
 - **Words:** everything is in `index.html`; each section is commented.
 - **Solar system info cards:** `INFO` near the top of `orrery.js`.
 - **Places on the globe:** `PLACES` in `globe.js` (the `primary` one gets the yellow arc).
-- **Starship timing:** the `TL` mission clock in `rocket.js`.
+- **Artemis mission timing:** the `TL` mission clock and the `PHASES` list in `rocket.js`.
 
 ## Deploy
 

@@ -286,9 +286,13 @@
       if (!on) return;
       const at = ac.currentTime + 0.05;
       if (id === 'launch') {
-        bips(at, { n: 3, freq: 880, level: 0.16, gap: 1 });   // T-3, T-2, T-1
-        tone(1320, at + 3, 0.35, 0.16);
-        rumble(at + 3, 8);
+        // Launch skips the countdown: one beep as the water comes on, then the engines
+        tone(1320, at, 0.35, 0.16);
+        rumble(at + 0.8, 8);
+      } else if (id === 'firework') {
+        // a firework bursting: a pop and a scatter of crackles
+        crackle(0.5, at);
+        for (let i = 0; i < 5; i++) crackle(0.18, at + 0.15 + Math.random() * 0.6);
       } else if (id === 'catch' || id === 'landed') {
         quindarIn(at);
         bips(at + 0.5, { n: id === 'catch' ? 2 : 3, freq: 1500, level: 0.16 });

@@ -4,7 +4,7 @@
    - Flat shading in a few posterized tones, back-face culling, and a
      painter's sort; every face is filled one scanline at a time on the
      integer pixel grid, so edges stay crisp when CSS scales the canvas up.
-   Used by the robot room (About) and the Starship scene (Career). */
+   Used by the robot room (About) and the Artemis mission (Career). */
 window.Tiny3D = (() => {
   'use strict';
 
